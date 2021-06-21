@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.Loginintro">
+
+    <TextView
+        android:id="@+id/textLoginSubHead"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="I can take it. The tougher it gets, the cooler \nI get Attempt The Quiz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loginHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:text="@string/loginHeader"
+
+        app:layout_constraintBottom_toTopOf="@+id/textLoginSubHead"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/loginIntroImage"
+        android:layout_width="260dp"
+        android:layout_height="230dp"
+        app:layout_constraintBottom_toTopOf="@+id/loginHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_undraw_quick_chat_re_bit5__1_"
+        android:layout_marginBottom="16dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginGetStarted"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorPrimaryButton"
+        android:background="@drawable/btn_primary"
+        android:text="Get Started"
+
+        app:layout_constraintEnd_toEndOf="@+id/textLoginSubHead"
+        app:layout_constraintStart_toStartOf="@+id/textLoginSubHead"
+        app:layout_constraintTop_toBottomOf="@+id/textLoginSubHead" />
+
+    <ImageView
+        android:id="@+id/mainBottomImage"
+        android:layout_width="0dp"
+        android:layout_height="130dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_wave" />
+</androidx.constraintlayout.widget.ConstraintLayout>
