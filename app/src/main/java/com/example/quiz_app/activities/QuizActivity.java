@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,6 +48,8 @@ public class QuizActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+
         // Got The recycler view
         quiz_recycler = findViewById(R.id.question_recycler);
         description = findViewById(R.id.quiz_description);
@@ -55,6 +58,10 @@ public class QuizActivity extends AppCompatActivity {
         submit = findViewById(R.id.submit_btn);
         previous = findViewById(R.id.prev_btn);
         next = findViewById(R.id.next_btn);
+
+        submit.setVisibility(View.GONE);
+        next.setVisibility(View.GONE);
+        previous.setVisibility(View.GONE);
 //        setUpView();
         setUpFireStore();
         setUpEventListner();
@@ -85,6 +92,15 @@ public class QuizActivity extends AppCompatActivity {
                 * 1) make 2 activity layouts -> results and logout
                 *  */
                 Log.d("DATA","FINAL RESULTS : "+ quesions);
+                Log.d("DATA","FINAL RESULTS : "+ quizzes.get(0));
+
+                Gson gson = new Gson();
+                String data = gson.toJson(quizzes.get(0));
+                Intent intent = new Intent(QuizActivity.this,ResultActivity.class);
+                intent.putExtra("QUIZ",data);
+                startActivity(intent);
+                finish();
+
             }
         });
     }
@@ -123,9 +139,7 @@ public class QuizActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.R)
     public void setUpView(){
-        submit.setVisibility(View.GONE);
-        next.setVisibility(View.GONE);
-        previous.setVisibility(View.GONE);
+
         if(quesions.size() != 0 || quesions != null) {
 
             if (index == 1 && index == quesions.size()) {

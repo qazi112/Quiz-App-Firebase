@@ -11,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Quiz_App">
-        <activity android:name=".activities.QuizActivity" android:theme="@style/Theme.AppTheme">
-
-
-        </activity>
+        <activity android:name=".activities.ResultActivity"></activity>
+        <activity android:name=".activities.ProfileActivity" />
+        <activity
+            android:name=".activities.QuizActivity"
+            android:theme="@style/Theme.AppTheme" />
         <activity android:name=".RecyclerPractice" />
         <activity android:name=".activities.SignupActivity" />
         <activity android:name=".activities.Loginintro">

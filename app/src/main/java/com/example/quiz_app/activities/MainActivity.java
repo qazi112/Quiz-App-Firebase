@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     ActionBarDrawerToggle action_toggle;
     DrawerLayout drawer;
+    NavigationView nav_view;
     RecyclerView recyclerView;
     FloatingActionButton fab;
     ArrayList<Quiz> quiz_data = new ArrayList<>();
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         appbar = findViewById(R.id.topAppBar);
         recyclerView = findViewById(R.id.quiz_recycler);
         fab = findViewById(R.id.btn_date_picker);
+        nav_view = findViewById(R.id.nav_view);
 
         firebaseFirestore = FirebaseFirestore.getInstance();
 //        populateDummyData();
@@ -144,6 +146,15 @@ public class MainActivity extends AppCompatActivity {
     }
     public void setUpDrawerLayout(){
         // setting action Bar
+//        TODO set navigation wala issue 
+        nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+                drawer.closeDrawers();
+                return true;
+            }
+        });
         setSupportActionBar(appbar);
         // Adding 'Toggle'
         action_toggle = new ActionBarDrawerToggle(

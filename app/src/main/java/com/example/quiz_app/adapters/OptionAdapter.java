@@ -43,7 +43,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.OptionView
     public void onBindViewHolder( OptionViewHolder holder, int position) {
     String data = options.get(position);
     holder.option.setText(data);
-    Log.d("TAG",question.userAnswer);
+
     holder.itemView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
